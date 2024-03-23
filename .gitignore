@@ -1,0 +1,9 @@
+.config
+xosview
+*.d
+*.o
+dist
+
+##  Auto-generated stuff:
+defaultstring.cc
+Xdefaults

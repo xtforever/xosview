@@ -1,0 +1,76 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+DPKG_EXPORT_BUILDFLAGS = 1
+
+include /usr/share/dpkg/architecture.mk
+include /usr/share/dpkg/buildflags.mk
+
+CXX=g++
+
+PLATFORM_MAP_linux = linux
+PLATFORM_MAP_kfreebsd = bsd
+PLATFORM_MAP_hurd = gnu
+PLATFORM = $(PLATFORM_MAP_$(DEB_HOST_ARCH_OS))
+ifeq ($(PLATFORM),)
+  $(error Missing implementation for $(DEB_HOST_ARCH_OS))
+endif
+
+ARCH_MAP_amd64 = x86_64
+ARCH = $(or $(ARCH_MAP_$(DEB_HOST_ARCH_CPU)),$(DEB_HOST_ARCH_CPU))
+
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+build-stamp:
+	dh_testdir
+	dh_auto_build -- PLATFORM=$(PLATFORM) ARCH=$(ARCH)
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	[ ! -f Makefile ] || $(MAKE) clean
+	dh_clean defaultstring.cc
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	
+	install -D -m 0755 xosview debian/xosview/usr/bin/xosview
+	install -m 0644 Xdefaults \
+		debian/xosview/etc/X11/app-defaults/XOsview
+	grep xosvstipple Xdefaults.stipple >> \
+		debian/xosview/etc/X11/app-defaults/XOsview
+	install -m 0644 $(CURDIR)/xosview.desktop \
+		debian/xosview/usr/share/applications
+	install -m 0644 $(CURDIR)/xosview.xpm \
+		debian/xosview/usr/share/pixmaps
+
+binary-indep: build install
+
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs -k CHANGES
+	dh_installdocs
+	dh_installman xosview.1
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build build-arch build-indep clean binary-indep binary-arch binary install

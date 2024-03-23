@@ -1,0 +1,252 @@
+For changes since xosview-1.9.1, see the source code history in Git.
+
+Changes since xosview-1.9.0
+
+  - Fix a bug where battery meter was not redrawn
+
+Changes since xosview-1.8.3
+
+  - Modify linux serialmeter startup to allow for a port number instead of
+    True/False.  Patch provided by Horst Wente.
+
+  - netIface support for NetBSD.  Patch from  Bernd Ernesti.
+
+  - Move repository to Git
+
+  - Merged patches from Debian distribution
+
+  - Several bugfixes
+
+  - Improvements to defaults
+
+Changes since xosview-1.8.2
+ - NFSDStats ans NFSStats Graph, Decay and UsedMode are now configurable
+
+ - SunOS updates, compiles now cleanly with gcc 3.3.2
+
+ - Fix for linux intmeter for interrupts > 16 thanks to John Adams
+
+ - Small patch from Gunnar Wolf for lmstemp (change int to double)
+
+ - Fix battery meter for case where lack of APM report -1%.  Thanks
+   to Gunnar Wolf.
+
+ - Allow netmeter to specify, via the Xresource xosview*netIface,
+   which network interface it will monitor.  Patch thanks to Gunnar Wolf.
+
+ - Add patch for additional cpu fields in linux for 2.6 kernel.  Patch thanks
+   to Hendrik Fehr.
+
+ - Add various pathes from the NetBSD project.  Pathes contributed by Roland
+   Illig.
+
+ - Fix bug 854215 (-v and --version still needed to connect to X server)
+
+Changes since xosview-1.8.1
+ - Applied sourceforge patch 927112 from Russell Reed which fixes
+   the swapmeter when USESYSCALLS is defined.
+
+ - Applied sourceforge patch 959433 which adds acpi support to
+   the linux battery meter.
+
+ - Applied a patch similar to the sourceforge patch 586184 submitted
+   by Mark Guertin.
+
+ - Linux diskmeter now uses vmstat and thus works with 2.6.
+   But the units problem (block size) probably still remains.
+
+ - Linux pagemeter should now work with 2.6 kernels
+
+ - Merge in the fedora-2 nfs patch.
+
+ - Merge in the fedora-2 strip patch.
+
+ - Merge in the fedora-2 proc patch.
+
+ - Merge in the fedora-2 s390 patch.
+
+ - Merge in the fedora-2 non-i386 patch.
+
+ - Merge in the fedora-2 linux-2.6 kernel (related) patch.
+
+ - Add an autogen.sh script.  This script runs autoconf to create
+   the configure script.
+
+Changes since xosview-1.8.0
+
+- Update linux port to build with gcc 3.2 and 3.3 (should still work
+  with 2.95.
+
+- Add -Wno-deprecated for gcc builds.  This avoids warnings about
+  the new C++ header files.  This should be fixed for the next release.
+
+- Change MAX_PROC_LENGTH in linux/cpumeter to 4096 to avoid
+  an infinite loop with redhat 7.3
+
+Changes since xosview-1.7.3
+
+- Add Mike Butler's patch which fixes an infinite loop in
+  the linux netmeter when a pcmcia card is ejected.
+
+- Add Leopold Toetsch's linux lmstemp meter.
+
+- Linux port (and maybe others) now works with gcc-3.0.4
+
+- added IRIX 6.5 support
+
+- Updated NetBSD support, based on patches from Bernd Ernesti, to
+  use new CPU meter sysctl interface.
+
+Changes since xosview-1.7.2
+
+- IRQ rate meter for BSDs added.
+
+- FreeBSD 4.* fixes by David O'Brien
+
+Changes since xosview-1.7.1
+
+- Linux now has a RAID meter.  See README.linux for how to set it up.
+
+  BSDI support, courtesy of Tomer Klainer.
+  Fixed memstat module for linux-2.2
+
+  Changes from Thomas Waldmann (ThomasWaldmann@gmx.de)
+- Fixed cosmetical bug in xosview:
+  if you tried to make the xosview window height too small, it looked quite
+  strange (because the height value for the meters got negative)
+
+- Fixed cosmetical bug in disk meter:
+  at first call, it displayed negative values, overwriting the "DISK" label
+
+- Cosmetical fix:
+  The titles were at x=0 - directly at the window border.
+  Fixed it to show 1 pixel background between window border and title texts.
+  Also moved "used" displays 2 pixels to the right, so that there is also 1
+  pixel between the titles and the used display texts.
+
+- Cosmetical fix: Xdefaults and Xdefaults.stipple file now looks nicer.
+
+- Cosmetical fix: load meter sometimes went beyond the right border (I think
+  when showing values >>20). Changed load meter scaling to be really dynamic
+  (no upper bound for total, but total doesn't become less than 1.0).
+  Changed "used" display to show load relative to 1.0 (so it now just shows
+  the load value ;-).
+
+- New feature: load meter now has not only a warning color (and threshold),
+  but also a (higher) critical color (and threshold).
+
+- Added info to disk meter problem documentation (see source):
+  on my system, it showed only the half of the correct values, factor
+  for SW-RAID5 md devices seems to be 2048 (md0), while standard ext2fs
+  factor is 1024 on my system, too (hda).
+
+  So there is a problem. Solution ???
+
+- Fixed bitmeter to calculate graphics coordinates like fieldmeter
+
+- MemMeter showed strange values when starting vmware (and having memstat
+  module loaded): "used" memory got negative !! Looking at the values, I had
+  the impression that "shared" memory is also counted as cache memory.
+  I hopefully fixed that by subtracting shared from cache - looks better now.
+
+Changes since xosview-1.7.0
+  Optimised scrolling graph to use XCopyArea.
+  Fixes to linux diskmeter.
+  Fixed all (I hope) linux code which parsed /proc/stat with too
+    small a buffer.
+
+Changes since xosview-1.6.2
+  Added a linux diskmeter which *should* be similar to the BSD version
+    but which also differentiates between reading and writing. Linux
+    looks like it actually has more stats (per disk input/output) so
+    this could be expanded upon.
+  Better *BSD support:  OpenBSD intmeter, FreeBSD diskmeter,
+    NetBSD battery meter.
+  Some Solaris support.
+
+Changes since xosview-1.6.1
+  Check for and set -D__SMP__ if the linux memstat module is built on a
+    SMP system.
+  New option to omit the meter captions (+-captions) added by
+    Christian 'Dr. Disk' Hechelmann <drdisk@tc-gruppe.de>
+  New graphing meter display mode added.
+  Fixes to work with linux/alpha.
+  BSD directories merged -- now a single bsd subdir shared by
+    NetBSD, FreeBSD, and OpenBSD.
+
+Changes since xosview-1.6.0:
+  Linux netmeter for kernels 1.1 and above no longer hangs after
+    the packet count gets too high.
+  Interrupt meter now supports priority settings under *BSD and Linux.
+  Better UVM detection for *BSD.
+  Code cleanup/removal of unneeded #include's for *BSD.
+
+Changes since xosview-1.5.1, in no particular order:
+
+  Linux netmeter does not need IPACCOUNTING for 1.1 kernels.
+
+  Much better support for FreeBSD, thanks to Tom Pavel!
+
+  Check for invalid meter priority of 0 added.
+
+  NetBSD now supports the interrupt meter.
+
+  Finally found the missing 'else' that was causing the net meter
+    in particular to occasionally overwrite the label.
+
+  Found 32-bit-wrap case that was also causing the netmeter grief.
+
+  Bitmeter class drawing routine tweaked, usedLabel color changed
+    to be the same as the `on' color for the bits.
+
+Changes since xosview-1.5.0, in no particular order:
+
+  On Linux the cpu meters will now show a seperate meter per cpu if
+    Jerome Forissier's kernel patch has been applied.
+
+  Linux should now work out of the box with GNU libc (untested).
+
+  The autoscale labels now work under Linux and HPUX.
+
+  Early support for FreeBSD:  load, cpu, mem, and page meters.
+
+  Now compiles with either BSD or GNU make (BSD make can not handle
+    auto-depend with the current Makefile structure).
+
+  Man page source code now uses lots of macros to make modifications easier.
+
+Changes since xosview-1.4.*, in no particular order:
+
+Linux memory and swap meters now will work with linux 2.0 or 2.1
+  They will no longer work for pre 2.0 kernels.
+
+All meters can now be disabled individually.
+
+The overloaded 'network' resource has been deprecated, and replaced by
+  'net' to enable/disable the NetMeter, and 'netBandwidth', which sets the
+  initial maximum value for the meter.
+
+Initial support for stipple masks has been added, primarily for users
+  stuck with 1-bit monitors/display cards.  Try setting enableStipple
+  true.  Please give us feedback on this, if you use it.  It needs
+  some more work.
+
+Initial support for the -name option for specifying an X resource
+  `instance name' other than the default of `xosview'.  With the
+  following .Xdefaults file:
+    xosview*background:  blue
+    xosviewFoo*background: black
+  the command 'xosview' will have a blue background, and the command
+  'xosview -name xosviewFoo' will have a black background, but all
+  other resources will be from the default xosview resources.
+
+New meters:
+  PageMeter for Linux
+  BatteryMeter for Linux
+  DiskMeter for NetBSD
+
+Improved drawing.
+
+Improved usedLabels -- now the autoscale format can be used to
+  automatically print a value in K, M, or G, as appropriate.  (Before,
+  most displays showed percent use, instead of absolute values.)

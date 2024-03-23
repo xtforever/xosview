@@ -1,0 +1,34 @@
+
+  The IRIX port supports:
+
+    - load meter
+
+    - cpu meter: The cpu meter has a new X resource cpuFormat, with the
+                 possible values of single, all, auto or both. It
+                 determines how cpu meters are handled for
+                 multiprocessors: single displays only meters for each
+                 cpu, all displays only a cumulative meter for all cpus,
+                 both displays both and auto behaves like both on mp
+                 machines and single on up machines.
+
+    - mem meter
+
+    - gfx meter: Displays swapbuffers/second.
+
+  Of course, you're welcome to send me patches.
+
+  For the gfx meter, sadc is forked to read the activity. The sadc
+  process is handled from the singleton SarMeter, which reads the binary
+  data from sadc and converts it into structures. Currently, it parses
+  gfxinfo and diskinfo data. The diskinfo can be used to create a disk
+  meter, but I do not have the time currently. As said above, send me
+  patches ;).
+
+
+  It is tested on: 
+
+  IP20, IP22, IP27, IP30, IP32 and IP35. 
+
+
+  Stefan Eilemann, Apr 03 	eilemann@gmail.com
+

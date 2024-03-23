@@ -1,0 +1,1028 @@
+xosview (1.20-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Updated Standards-Version to 4.1.3
+    + Updated Vcs-* URLs.
+  * debian/copyright:
+    + Some cleanups. Removed old upstream contacts, use https.
+  * Bumped debhelper compat to 11.
+  * debian/rules:
+    + Set hardening=+all.
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: (Closes: #879902)
+    + Let dh_auto_build pass cross compilers to make.
+    + Fix build/host confusion.
+    + Also pass ARCH= to make.
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 21 Jan 2018 20:31:13 +0530
+
+xosview (1.19-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/aarch64_build:
+    + Dropped. Merged upstream.
+
+ -- Kartik Mistry <kartik@debian.org>  Sat, 10 Dec 2016 18:45:30 +0530
+
+xosview (1.18-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/gcc6_compilation:
+    + Dropped. Merged upstream.
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 01 Sep 2016 11:43:58 +0530
+
+xosview (1.17-3) unstable; urgency=low
+
+  * debian/patches/gcc6_compilation:
+    + Fix FTBFS with GCC 6 (Closes: #811819)
+  * debian/control:
+    + Updated to Standards-Version 3.9.8
+    + Fixed Vcs-* URLs.
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 30 Jun 2016 11:11:56 +0530
+
+xosview (1.17-2) unstable; urgency=medium
+
+  * debian/patches/aarch64_build:
+    + arm64 doesn't have sys/io.h and sys/perm.h like many other Linux
+      architectures. Patch by Steve McIntyre <93sam@debian.org>
+      (Closes: #759064)
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 09 Oct 2015 21:05:19 +0530
+
+xosview (1.17-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Updated Standards-Version to 3.9.6
+  * Removed debian/menu as per policy.
+  * debian/copyright:
+    + Updated for upstream file location changes.
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 08 Oct 2015 17:43:33 +0530
+
+xosview (1.16-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    + Updated Standards-Version to 3.9.5
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 27 Dec 2013 19:15:49 +0530
+
+xosview (1.15-2) unstable; urgency=low
+
+  * debian/rules:
+    + Fix FTBFS on hurd, Thanks to Samuel Thibault for patch (Closes: #714511).
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 12 Aug 2013 13:19:12 +0530
+
+xosview (1.15-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Arch set to any since upstream fixed build on hurd.
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 11 Aug 2013 11:50:06 +0530
+
+xosview (1.14-3) unstable; urgency=low
+
+  * Uploaded to unstable.
+  * Builds fine with m68k with 1.14 version (Closes: #696872).
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 06 May 2013 14:15:02 +0530
+
+xosview (1.14-2) experimental; urgency=low
+
+  * debian/rules:
+    + Platform detection improvement, Thanks to Pino Toscano <pino@debian.org>
+      (Closes: #706170).
+  * debian/control:
+    + Added libkvm-dev as build-depends for kfreebsd-*
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 26 Apr 2013 13:46:38 +0530
+
+xosview (1.14-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/rules, debian/control:
+    + Enabled experimental support for kFreeBSD-* archs.
+
+ -- Kartik Mistry <kartik@debian.org>  Wed, 24 Apr 2013 15:26:56 +0530
+
+xosview (1.12-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    + Updated Standards-Version to 3.9.4
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 28 Dec 2012 11:55:16 +0530
+
+xosview (1.11-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 15 Oct 2012 08:48:03 +0530
+
+xosview (1.9.4-1) unstable; urgency=low
+
+  * New upstream release:
+    + Dropped patch debian/patches/ftbfs_fixes.diff, merged upstream.
+  * debian/rules, debian/control:
+    + Added hardening support.
+    + Added VCS-* fields for collab-maint repository.
+  * debian/copyright:
+    + Removed duplicate Copyright fields.
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 06 Sep 2012 19:17:53 +0530
+
+xosview (1.9.3-3) unstable; urgency=low
+
+  * debian/control:
+    + ok. Drop hurd-i386 as of now, until we really fix it at upstream.
+  * debian/patches:
+    + Refreshed patch to fix FTBFS on s390/s390x.
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 23 Apr 2012 21:56:29 +0530
+
+xosview (1.9.3-2) unstable; urgency=low
+
+  * debian/control:
+    + Add hurd-i386 to Architecture list.
+  * Added patch to fix FTBFS on s390/s390x.
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 23 Apr 2012 17:36:26 +0530
+
+xosview (1.9.3-1) unstable; urgency=low
+
+  * New upstream release:
+    + The build no longer uses GNU autoconfig. Control is via Makefile
+      variables.
+  * debian/rules:
+    + Removed autoconfig/configure, not needed now.
+  * debian/control:
+    + Updated Build-Depends.
+    + Set Architecture to 'linux-any', until bsd/ and gnu/ parts are fixed in
+      upstream.
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 23 Apr 2012 12:14:43 +0530
+
+xosview (1.9.2-2) unstable; urgency=low
+
+  * debian/rules:
+    + Fixed build-arch target fun. Fixes FTBFS. Thanks to #debian-devel for
+      help (Closes: #666353)
+  * debian/control:
+    + Updated Standards-Version to 3.9.3
+  * debian/copyright:
+    + Updated to copyright-format 1.0
+
+ -- Kartik Mistry <kartik@debian.org>  Sat, 31 Mar 2012 00:01:48 +0530
+
+xosview (1.9.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright:
+    + Updated DEP-5 URL.
+
+ -- Kartik Mistry <kartik@debian.org>  Wed, 01 Feb 2012 09:34:44 +0530
+
+xosview (1.9.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch:
+    + Fixed for upstream location change.
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 29 Dec 2011 14:59:42 +0530
+
+xosview (1.9.0-1) unstable; urgency=low
+
+  * New upstream release:
+    + Dropped all patches from Debian, merged with upstream.
+    + Removed debian/xosview.desktop, debian/xosview.xpm, adopted upstream.
+  * debian/rules:
+    + Added needed build targets.
+    + Updated clean target.
+  * debian/copyright:
+    + Updated to latest DEP-5 format.
+    + Added missing copyright and license for some files.
+    + Updated Source field for new homepage.
+  * debian/control:
+    + Updated Homepage.
+    + Mention WLAN meter in long description.
+  * Updated debian/watch file.
+
+ -- Kartik Mistry <kartik@debian.org>  Wed, 16 Nov 2011 10:52:24 +0530
+
+xosview (1.8.3+debian-23) unstable; urgency=low
+
+  * debian/patches/30_wireless_support.diff:
+    + Added initial wireless support patch from Tim Ehlers <tehlers@gwdg.de>
+      (Closes: #626504)
+  * debian/control:
+    + Updated Standards-Version to 3.9.2
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 13 May 2011 08:35:55 +0530
+
+xosview (1.8.3+debian-22) unstable; urgency=low
+
+  * debian/patches/29_syspower_battery_support.diff:
+    + Updated patch to include a fallback from energy-reporting batteries to
+      charge-reporting ones, Thanks to Alexander Zangerl <az@debian.org> for
+      patch (Closes: #617696)
+  * debian/control:
+    + Updated Standards-Version to 3.9.1 (no changes needed)
+  * debian/copyright:
+    + Do not mention link to BSD in common-license
+    + Updated for DEP-5 r173 format
+
+ -- Kartik Mistry <kartik@debian.org>  Thu, 17 Mar 2011 22:25:36 +0530
+
+xosview (1.8.3+debian-21) unstable; urgency=low
+
+  * debian/source/format:
+    + Added to use source format 3.0 (quilt)
+  * debian/watch:
+    + Fixed dversionmangle format
+  * Update debian/compat to 7
+
+ -- Kartik Mistry <kartik@debian.org>  Tue, 01 Jun 2010 20:02:57 +0530
+
+xosview (1.8.3+debian-20) unstable; urgency=low
+
+  * debian/patches/29_syspower_battery_support.diff:
+    + Added patch to fix battery readings for kernel > 2.29.1-686, Thanks to
+      Steve McIntyre <93sam@debian.org> for patch (Closes: #527810)
+  * debian/control:
+    + Updated Standards-Version to 3.8.4 (no changes needed)
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 21 Mar 2010 11:08:33 +0530
+
+xosview (1.8.3+debian-19) unstable; urgency=low
+
+  * debian/patches/28_sh4_support.diff:
+    + Added sh4 support. Thanks to Nobuhiro Iwamatsu <iwamatsu@nigauri.org> for
+      patch (Closes: #549174)
+
+ -- Kartik Mistry <kartik@debian.org>  Fri, 02 Oct 2009 10:35:35 +0530
+
+xosview (1.8.3+debian-18) unstable; urgency=low
+
+  * debian/patches/27_fix_const.diff:
+    + Fixed FTBFS with gcc-4.4, Thanks to Stefan Potyra <sistpoty@ubuntu.com>
+      (Closes: #548517)
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 27 Sep 2009 01:36:58 +0530
+
+xosview (1.8.3+debian-17) unstable; urgency=medium
+
+  * debian/control:
+    + Added missing Recommends on xfonts-base, it can't be Depends as Debian
+      Policy Manual section 11.8.5, Thanks to Marc Coll <marcoll@ya.com> for
+      reporting bug (Closes: #547499)
+  * Urgency set to medium due to RC bug fix
+  * Fixed patch name in last changelog entry
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 21 Sep 2009 09:20:55 +0530
+
+xosview (1.8.3+debian-16) unstable; urgency=low
+
+  * Migrated to quilt from dpatch
+  * debian/patches/26_spelling_fix.diff:
+    + Added patch to fix spelling mistake
+  * debian/control:
+    + Updated Build-Depends for quilt (>= 0.40)
+    + Wrapped up Build-Depends
+  * debian/rules:
+    + Changes for quilt migration
+  * debian/README.source:
+    + Updated for quilt usage
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 20 Sep 2009 11:39:09 +0530
+
+xosview (1.8.3+debian-15) unstable; urgency=low
+
+  * Added debian/README.source
+  * Added debian/xosview.desktop
+  * Added debian/xosview.xpm from Xosview homepage
+  * debian/control:
+    + Upated debhelper dependency to 7
+    + Updated Standards-Version to 3.8.3
+  * debian/rules:
+    + Used dh_prep instead of dh_install -k
+    + Added installation for xosview.desktop and xpm icon
+  * debian/menu:
+    + Added icon xosview.xpm
+
+ -- Kartik Mistry <kartik@debian.org>  Sat, 12 Sep 2009 12:13:47 +0530
+
+xosview (1.8.3+debian-14) unstable; urgency=low
+
+  * debian/patches/24_enhanced_memory.dpatch:
+    + Patch for additional memory fields (Closes: #507577)
+  * debian/patches/25_iostream_h_FTBFS_fixes.dpatch:
+    + Patch to fix FTBFS due to use of iostream.h and fstream.h
+  * debian/copyright:
+    + Added missing Authors and Copyright owners
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 02 Aug 2009 09:36:14 +0530
+
+xosview (1.8.3+debian-13) unstable; urgency=low
+
+  * debian/rules:
+    + Make sure that old config.* files are not used, Fixed mistake
+      in location of config.* files (Closes: #536254)
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 13 Jul 2009 00:18:59 +0530
+
+xosview (1.8.3+debian-12) unstable; urgency=low
+
+  * debian/control:
+    + Updated Standards-Version to 3.8.2 (no changes needed)
+  * debian/rules:
+    + Make sure that old config.* files are not used (Closes: #535711)
+  * debian/copyright:
+    + [Lintian] Removed reference to symlinked copyright
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 06 Jul 2009 10:01:54 +0530
+
+xosview (1.8.3+debian-11) unstable; urgency=low
+
+  * debian/patches/23_cpumeter_guest_time.dpatch:
+    + Fixed typo from patch, Thanks to Samuel Thibault for patch update
+      (Closes: #502045)
+
+ -- Kartik Mistry <kartik@debian.org>  Sun, 16 Nov 2008 10:27:17 +0530
+
+xosview (1.8.3+debian-10) unstable; urgency=low
+
+  * debian/control:
+    + Updated my maintainer email address
+  * debian/watch:
+    + [Lintian] Fixed to mangle debian from version for DEHS
+
+ -- Kartik Mistry <kartik@debian.org>  Mon, 18 Aug 2008 17:15:40 +0530
+
+xosview (1.8.3+debian-9) unstable; urgency=low
+
+  * debian/control:
+    + Updated Standards-Version to 3.8.0 (no changes needed)
+  * debian/rules:
+    + [Lintian] Fixed order of dh_makeshlibs
+  * debian/patches/22_fix_valgrind_reports.dpatch:
+    + Added patch to fix uninitialized values reported by Valgrind tool,
+      Thanks to Michael Karcher <debian@mkarcher.dialup.fu-berlin.de>
+      for patch (Closes: #323996)
+  * debian/patches/23_cpumeter_guest_time.dpatch:
+    + Added patch to add guest time in Linux cpumeter, Thanks to
+      Samuel Thibault <samuel.thibault@ens-lyon.org> for patch
+      (Closes: #486921)
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Tue, 24 Jun 2008 21:18:43 +0530
+
+xosview (1.8.3+debian-8) unstable; urgency=low
+
+  * debian/changelog:
+    + Fixed missing patch name from previous upload
+  * debian/patches/18_handle_high_irq_numbers.dpatch:
+    + Added Debian bug number in patch header
+  * debian/patches/19_fix_reading_interrupts.dpatch:
+    + Fixed patch name in header
+    + Added Debian bug number in patch header
+  * debian/patches/20_fix_swapmeter.dpatch:
+    + Fixed for wrong display value if swap is > 4 GB, Thanks to
+      Michael Karcher <debian@mkarcher.dialup.fu-berlin.de> for patch
+      (Closes: #151611, #399563)
+  * debian/patches/21_fix_unclutter.dpatch:
+    + Added patch to fix xosview stops updating the display after
+      unclutter has "unhidden" the cursor (Closes: #384453)
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Tue, 03 Jun 2008 17:37:55 +0530
+
+xosview (1.8.3+debian-7) unstable; urgency=low
+
+  * debian/patches/18_handle_high_irq_numbers.dpatch:
+    + Added patch to fix crash due to high irq numbers,
+      Thanks to Michael Karcher <debian@mkarcher.dialup.fu-berlin.de>
+      for patch (Closes: #483815)
+  * debian/patches/19_fix_reading_interrupts.dpatch:
+    + Added patch to fix interrupt indicator shows a "dead"
+      place before last IRQ, Thanks to Michael Karcher
+      <debian@mkarcher.dialup.fu-berlin.de> for patch
+      (Closes: #483975)
+  * debian/rules:
+    + Do not include config.sub/config.guess in diff.gz by placing
+      its section before ./configure call
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Mon, 02 Jun 2008 19:44:59 +0530
+
+xosview (1.8.3+debian-6) unstable; urgency=low
+
+  * debian/patches/17_cpuFormat-linux-support.dpatch:
+    + Added patch to fix cpuFormat support for Linux, Thanks to Michel
+      Lespinasse <walken@zoy.org> for patch (Closes: #469441)
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Tue, 25 Mar 2008 09:53:49 +0530
+
+xosview (1.8.3+debian-5) unstable; urgency=low
+
+  * debian/patches/16_lmstemp2.6.dpatch:
+    + Added patch to fix lm_sensors temperature evaluation doesn't work
+      with kernel 2.6, Thanks to Roman Hodek <roman@hodek.net> for patch
+      (Closes: #384380)
+  * debian/patches/13_manpage_fixes.dpatch:
+    + Updated patch to fix manpage warnings from groff
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Tue, 26 Feb 2008 23:18:38 +0530
+
+xosview (1.8.3+debian-4) unstable; urgency=low
+
+  * debian/control:
+    + Updated Standards-Version to 3.7.3
+    + Moved Homepage entry to control field
+  * debian/patches/09_app-default_search_patch.dpatch:
+    + Rewrote patch using Gentoo's files/xosview-resdir.patch
+  * debian/copyright:
+    + Updated link for license, as GPL now points to GPL-3
+    + Better way to list various files under netbsd/ directory
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Fri, 14 Dec 2007 23:15:56 +0530
+
+xosview (1.8.3+debian-3) unstable; urgency=low
+
+  * debian/rules: fixed build failure on mips and mispel arch by linking
+    config.sub and config.guess to latest version and using dpkg-architecture
+    right way. Thanks to Debian-mentors list for help
+  * debian/patches/15_FTBFS_alpha_missing_irq.dpatch: added patch for fixing
+    FTBFS on alpha due to missing asm/irq.h
+  * debian/watch: fixed horrible typo in it
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Fri, 05 Oct 2007 11:14:22 +0530
+
+xosview (1.8.3+debian-2) unstable; urgency=low
+
+  * Added patch for GNU/Hurd support, Thanks to Samuel Thibault
+    <samuel.thibault@ens-lyon.org> for patch (Closes: #436136)
+  * debian/watch: fixed goofups with it
+  * debian/rules: fixed configure flags, removed useless $PACKAGE call
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Thu, 13 Sep 2007 10:51:02 +0530
+
+xosview (1.8.3+debian-1) unstable; urgency=low
+
+  * Long awaited new upstream release
+  * Repacked upstream source to remove debian directory
+  * Added dpatch support
+  * Added all previous applied patches as debian/patches
+  * debian/control: dropped x-dev dependency (Closes: #436973)
+  * Added patch for Support for interrupts, waitio and stolen times, Thanks to
+    Samuel Thibault <samuel.thibault@ens-lyon.org> for patch (Closes: #437099)
+  * Added patch to fix manpage .TH header error and groff warnings
+  * debian/menu: updated according to latest menu policy
+  * debian/copyright: moved copyright out of license section, mentioned about
+    upstream source modifications, indented text to 80 characters
+  * debian/rules: minor cleanups
+  * debian/watch: fixed to use qa redirector as per uscan man page
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Fri,  7 Sep 2007 22:40:47 +0530
+
+xosview (1.8.2-14) unstable; urgency=low
+
+  * linux/serialmeter.h: added required two variable by hand as missing
+    linux/serial_reg.h is not going to add again in linux-libc-dev
+    package (Closes: #427599)
+  * debian/rules: better clean target for extra error traping
+  * debian/control: added homepage entry
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Tue, 24 Jul 2007 22:17:39 +0530
+
+xosview (1.8.2-13) unstable; urgency=low
+
+  * Fixed FTFBS from linux/serialmeter.cc by adding missing build-dependency
+    of linux-kernel-headers package (Closes: #427599)
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Tue, 05 Jun 2007 13:39:49 +0530
+
+xosview (1.8.2-12) unstable; urgency=low
+
+  * Updated to debhelper compability to 5
+  * Added debian/compat
+  * debian/dirs: removed useless entries
+  * debian/rules: added install target, config.guess and config.sub is
+    required to have in .diff.gz, removed useless dh_* calls, cleanups
+  * debian/copyright: formatted according to standard copyright file
+  * debian/watch: removed useless comments
+  * debian/control: formatted according to standard control file
+  * xosview.1: fixed manpage errors according to groff and lintian
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Thu, 20 May 2007 12:23:26 +0530
+
+xosview (1.8.2-11) unstable; urgency=low
+
+  * Fixed incorrect search path for X defaults file (Closes: #408147)
+  * debian/control: Fixed long description to 80 characters
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Mon,  5 Feb 2007 21:45:17 +0530
+
+xosview (1.8.2-10) unstable; urgency=low
+
+  * New Maintainer (Closes: #390066)
+  * standards-version to 3.7.2
+
+ -- Kartik Mistry <kartik.mistry@gmail.com>  Fri, 29 Sep 2006 10:16:09 +0530
+
+xosview (1.8.2-9) unstable; urgency=low
+
+  * Acknowledged patch by Roberto Sanchez, included in Lars Wirzenius'
+    NMU for 1.8.2-8.1 (Closes: #364629)
+  * Incorporated Joachim Reichel's patch for aclocal.m4, fixing FTBFS on
+    s390 (Closes: #368289)
+  * Upgraded standards-version to 3.7.2.0 (no changes needed)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Mon,  5 Jun 2006 20:07:31 -0500
+
+xosview (1.8.2-8.1) unstable; urgency=low
+
+  * Non-maintainer upload by Lars Wirzenius using patch by Roberto
+    C. Sanchez <roberto@familiasanchez.net> from the bug tracking system.
+  * Added portable check for snprintf to configure.in using code from
+    file:///usr/share/doc/autoconf-archive/htmldoc/ac_func_snprintf.html.
+    (Closes: #364629)
+
+ -- Lars Wirzenius <liw@iki.fi>  Sat, 21 May 2006 07:09:00 +0300
+
+xosview (1.8.2-8) unstable; urgency=low
+
+  * Substituted build-dependency on xlibs-dev for its component packages
+    libx11-dev, libxpm-dev, libxt-dev, x-dev
+
+ -- Gunnar Wolf <gwolf@debian.org>  Wed,  4 Jan 2006 14:46:12 -0600
+
+xosview (1.8.2-7) unstable; urgency=low
+
+  * Acknowledged NMU for 316265 - Shame on me, looks dead simple! :-(
+    Thanks, Blars (Closes: #316265)
+  * Moved the Xdefaults out of /usr/share/doc to leave only one instance
+    in /etc/x11/app-defaults - What were they doing there in the first
+    place?
+  * Added the .stipple XDefaults to the end of the main file, documented
+    it in the man page
+
+ -- Gunnar Wolf <gwolf@debian.org>  Mon,  5 Sep 2005 12:08:19 -0500
+
+xosview (1.8.2-6.1) unstable; urgency=low
+
+  * 0 day NMU for RC bug durring BSP
+  * don't include sys/io.h on sparc (closes: #316265)
+
+ -- Blars Blarson <blarson@blars.org>  Sat,  3 Sep 2005 04:58:57 +0000
+
+xosview (1.8.2-6) unstable; urgency=low
+
+  * Rebuilt so dh_installmenu puts the menu in /usr/share/menu instead
+    of /usr/lib/menu
+  * Changed float to double in various meters as to prevent numbers over
+    2^32 (now common in RAM on large systems) from becoming wrong
+    (Closes: #151611)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Wed, 22 Jun 2005 00:17:47 -0500
+
+xosview (1.8.2-5) unstable; urgency=low
+
+  * Bumped up standards-version to 3.6.2
+
+ -- Gunnar Wolf <gwolf@debian.org>  Tue, 21 Jun 2005 23:38:11 -0500
+
+xosview (1.8.2-4) unstable; urgency=low
+
+  * Fixed: lmstemp didn't show the right information - Thanks to Robert
+    Schueler for the (obvious) patch, excuse me for not dealing with it
+    earlier! (Closes: #183695)
+  * Fixed: Now properly deals with the absence of a battery without
+    spitting out loads of errors. Attila Kinali's hint was in the right
+    direction, only I prefered to do something about the errors.
+    (Closes: #281565)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Tue,  3 May 2005 13:47:31 -0500
+
+xosview (1.8.2-3) unstable; urgency=low
+
+  * Disabled transparency as its result is definitively less than
+    satsifactory (Closes: #130633)
+  * Fixed some typos in the man page - Thanks to A. Costa for pointing
+    it out (Closes: #306715)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Tue,  3 May 2005 10:31:35 -0500
+
+xosview (1.8.2-2) unstable; urgency=low
+
+  * Added a 'xosview*netIface' Xresource to allow to monitor a specific
+    network interface (Closes: #89941)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Sat, 16 Oct 2004 09:47:25 -0500
+
+xosview (1.8.2-1) unstable; urgency=low
+
+  * New upstream release, incorporates most previous .diffs into the
+    upstream source. (Closes: #221885)
+  * Bumped up standards-version to 3.6.1
+
+ -- Gunnar Wolf <gwolf@debian.org>  Thu, 26 Aug 2004 18:47:21 -0500
+
+xosview (1.8.0-9) unstable; urgency=low
+
+  * New maintainer (Closes: #246973)
+  * Fixed some Lintian warnings (manpage section wrong in .TH, unquoted
+    elements in menu... Minor stuff)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Mon, 10 May 2004 15:32:03 -0500
+
+xosview (1.8.0-8) unstable; urgency=low
+
+  * Don't overwrite the previous NMU fixes when orphaning.  This allows it
+    to compile with g++-3.x, of course.  I'm such an idiot.
+  * Acknowledge NMU fixes:
+    (closes: #200175, #215824, #186499, #194342, #196324)
+
+ -- Zed Pobre <zed@debian.org>  Sun,  2 May 2004 11:25:19 -0500
+
+xosview (1.8.0-7) unstable; urgency=low
+
+  * Package orphaned.
+  * Force compilation with g++-2.95, since I can no longer get it to build
+    otherwise.
+
+ -- Zed Pobre <zed@debian.org>  Sun,  2 May 2004 11:01:49 -0500
+
+xosview (1.8.0-6) unstable; urgency=low
+
+  * Fix buggy pointer arithmetic in Xrm.cc that was causing some
+    resources not to load properly if when compiled with g++-3.2 and a
+    high level of optimization (closes: #182281).
+
+ -- Zed Pobre <zed@debian.org>  Sun, 27 Apr 2003 14:42:09 -0500
+
+xosview (1.8.0-5.2) unstable; urgency=low
+
+  * Non-Maintainer Upload
+  * Adapt patch for kernel 2.5/2.6 (Closes: #215824, #200175)
+  * Change EXTRA_CXXFLAGS from "-Wall -O4 -pipe" to "-W -Wall -O2"
+  * If you like this patch please let <da-manager@debian.org> know you
+    value my work and that he should find it in his heart to process my NM
+    application
+
+ -- Goswin von Brederlow <brederlo@informatik.uni-tuebingen.de>  Sat, 10 Jan 2004 11:41:47 +0100
+
+xosview (1.8.0-5.1) unstable; urgency=low
+
+  * Non-Maintainer Upload
+  * Apply patch to allow building under ANSI-standard C++ compilers
+    (specifically, GCC 3.3). (Closes: #186499, #196324)
+
+ -- Joel Baker <fenton@debian.org>  Sat, 23 Aug 2003 22:18:47 -0600
+
+xosview (1.8.0-5) unstable; urgency=low
+
+  * Rebuild with modern debhelper (closes: #177464)
+  * g++-3.2 is now the standard g++, so build-dependencies set
+    back. (closes: #170566)
+
+ -- Zed Pobre <zed@debian.org>  Sun,  9 Feb 2003 15:55:01 -0600
+
+xosview (1.8.0-4) unstable; urgency=low
+
+  * Compile with g++-3.2.
+  * Alter build-dependencies to match.
+
+ -- Zed Pobre <zed@debian.org>  Mon, 28 Oct 2002 18:03:47 -0600
+
+xosview (1.8.0-3) unstable; urgency=medium
+
+  * Added Build-Depends: autoconf (closes: #141908)
+
+ -- Zed Pobre <zed@debian.org>  Tue,  9 Apr 2002 00:58:58 -0500
+
+xosview (1.8.0-2) unstable; urgency=medium
+
+  * Removed root test on clean (not required)
+  * Only remove rpath when $host_os is linux*, and make the modification
+    in config/configure.in, not configure
+  * Rebuild configure from configure.in in the configure stage and remove
+    it on clean.
+  * Remove linux/memstat/Makefile on clean
+  * Updated watch file for new upstream location
+  * Revert the "using namespace std;" from linux/netmeter.cc and the
+    "std::hex" from serialmeter.cc.  These appear to be no longer
+    necessary for g++-3.0 compiles.  I'm sure the hppa folks will tell me
+    if I'm wrong.
+  * Changed the transparency code to the simpler form used by Tim van
+    Erven <tripudium@chello.nl>; this fixes the badpixmap error given when
+    xosview is compiled with gcc-3.0 and transparency is turned on.
+  * Applied (a slightly modified) patch from Helge Deller <deller@gmx.de>
+    to increase the buffer size allocated for reading /proc/stat.  On hppa
+    (PA-RISC) /proc/stat has very long lines, since there are virtualized
+    interrupts, and xosview will hang on startup if the information in
+    /proc/stat is larger than the buffer (closes: #141706)
+  * Added a README.cvs for people who end up wanting to make a debian
+    package directly out of a cvs version.  As of this release, we are now
+    synchronized with upstream cvs.
+
+ -- Zed Pobre <zed@debian.org>  Sun,  7 Apr 2002 23:49:50 -0500
+
+xosview (1.8.0-1) unstable; urgency=low
+
+  * All patches seem to have been reapplied successfully to new upstream
+    version 1.8.0.
+  * Remove all autogenerated targets on clean
+  * Force the use of g++-3.0.  This should help make sure that any further
+    changes don't break architectures without g++-2.95
+  * Updated debian/copyright to reflect new upstream location at
+    SourceForge
+
+ -- Zed Pobre <zed@debian.org>  Sun, 17 Mar 2002 16:06:25 -0600
+
+xosview (1.7.3-12) unstable; urgency=low
+
+  * Officially fix the C++ bug in Xrm.h (thanks to Jérôme Marant for the
+    NMU while my dev box was toasted) (closes: #133658)
+
+ -- Zed Pobre <zed@debian.org>  Sat,  2 Mar 2002 19:14:21 -0600
+
+xosview (1.7.3-11) unstable; urgency=medium
+
+  * Add "using namespace std;" to linux/netmeter.cc, which should fix up
+    the last build problem on hppa (I hope) (closes: #132889)
+
+ -- Zed Pobre <zed@debian.org>  Mon, 11 Feb 2002 14:43:24 -0600
+
+xosview (1.7.3-10) unstable; urgency=medium
+
+  * Undocumented fixes from the 3.1 NMU reinstated:
+    * s/friend XWin/friend class Xwin/ in xwin.h
+    * ia64, hppa, arm, mips (and alpha, but that was already taken care
+      of) cannot deal with ioperm, so exclude them in
+      linux/serialmeter.cc.
+    * use std::hex instead of hex in serialmeter.cc
+  * The above changes mean that arm and mips can actually compile
+    serialmeter.cc, so remove the ugly hack used in 1.7.3-9.
+  * The ioperm changes should fix compilation on mips (closes: #117297),
+    and the C++ changes should fix hppa (closes: #126469).
+
+ -- Zed Pobre <zed@debian.org>  Sun,  3 Feb 2002 18:19:06 -0600
+
+xosview (1.7.3-9) unstable; urgency=medium
+
+  * Nasty hack in config/Makefile.linux.in to test for the presence of
+    "arm" inside of @host_cpu@, and if found, set $(ARCH) to arm,
+    otherwise set $(ARCH) to @host_cpu@, and then test $(ARCH) against
+    $(FAIL_ARCH).  This closes: #117297 again, but means that any future
+    hardware that returns "arm" as a substring of its @host_cpu@ result
+    will not have a serialmeter.  This may be just as well.  Thanks to
+    willy in #debian-devel for the suggestion.
+  * Add s390 to the list, while we're at it (closes: 127469)
+  * Add powerpc to the list (Thanks to Andrew Sharp, but next time could
+    you please use the bug system?  I almost lost your e-mail...)
+  * If we add too many more architectures to the list, it might get easier
+    simply to list the architectures that DO have ioperm() and serialmeter
+    support.
+  * Tim van Erven's patch to add transparancy looks fairly safe, so I'm
+    adding it.  (closes: #127549)
+  * Remove config.cache and config.status in clean target.
+  * Medium urgency, since it fixes building on three architectures.
+
+ -- Zed Pobre <zed@debian.org>  Tue, 22 Jan 2002 19:08:58 -0600
+
+xosview (1.7.3-8) unstable; urgency=low
+
+  * Add arm to FAIL_ARCH list in config/Makefile.linux.in.  This wasn't a
+    lost portability patch, arm simply had never been added to the list.
+    (closes: #117297)
+
+ -- Zed Pobre <zed@debian.org>  Fri,  2 Nov 2001 18:29:34 -0600
+
+xosview (1.7.3-7) unstable; urgency=low
+
+  * Update config.guess and config.sub in the correct location (config/
+    subdirectory).  (closes: #115022 again)
+
+ -- Zed Pobre <zed@debian.org>  Wed, 24 Oct 2001 16:06:48 -0500
+
+xosview (1.7.3-6) unstable; urgency=low
+
+  * Update config.guess and config.sub; this fixes builds on several
+    architectures. (closes: #115022)
+  * Fixed path in menu entry (closes: #116618)
+
+ -- Zed Pobre <zed@debian.org>  Mon, 22 Oct 2001 21:39:22 -0500
+
+xosview (1.7.3-5) unstable; urgency=low
+
+  * Section: utils instead of x11
+  * Removed debugging message in intmeter.cc left in the -4 patch
+  * Added xlibs-dev to Build-Depends (closes: #112941)
+
+ -- Zed Pobre <zed@debian.org>  Thu, 20 Sep 2001 17:30:25 -0500
+
+xosview (1.7.3-4) unstable; urgency=medium
+
+  * The "It's Not Quite A Year Late" release.
+  * Removed the dune-chemicals.txt from the config directory.  Amazing
+    what strange things can get copied into the wrong directories and yet
+    remain unnoticed.
+  * Patches from Massimo Dal Zotto:
+    * Added -hmargin, -vmargin and -vspacing options to allow more precise
+      control of widget geometry when swallowed by gnome-panel.
+      * (I modified this patch to use the typesafe MIN and MAX macros that
+        Linus approved for the 2.4.10 Linux kernel, just because I like
+        them, and did minor cosmetic changes --Zed)
+    * Changed defresources.awk to generate a human readable version of
+      defresources.cc.
+    * Discarded the IRQ patch in favor of the one from David Fries.
+  * Applied patch from David Fries <dfries@mail.win.org> to set irqs_ and
+    lastirqs_ at run time (closes: #108738)
+  * Corrected xosview*networkBandwidth -> xosview*netBandwidth in the
+    manpage (closes: #109491)
+  * Added a "Monitoring" hint element to the xosview menu entry.  I am
+    somewhat wary of this, since I know of no other menu entries also
+    using that hint, but it seems to be a reasonable category to create,
+    so I might as well be the first.  (closes: #82549)
+  * Copy across /usr/share/automake/config.{guess,sub} to fix breakage on
+    arm and hppa.  Thanks to LaMont Jones <lamont@debian.org> for the NMU
+    on this earlier. (closes: #96549, #105032)
+  * DH_COMPAT=3.
+  * Standards-Version 3.5.6; moved the binary to /usr/bin, the manpage to
+    /usr/share/man/man1 (and put it back to .1 from .1x); Build-Depends
+    added for debhelper.  I've probably missed others, but the
+    autobuilders will file bugs, I'm sure.
+  * Removed the *BSD specific README files.
+
+ -- Zed Pobre <zed@debian.org>  Tue, 18 Sep 2001 19:15:08 -0500
+
+xosview (1.7.3-3) unstable; urgency=low
+
+  * Quickie change to move /usr/X11R6/lib/X11/app-defaults to
+    /etc/X11/app-defaults.
+  * Massimo Dal Zotto: I haven't forgotten about your patches; I just
+    haven't had time to finish putting them in and testing them, so
+    they're completely left out of this upload.
+
+ -- Zed Pobre <zed@debian.org>  Tue, 19 Dec 2000 23:42:06 -0600
+
+xosview (1.7.3-2) unstable; urgency=low
+
+  * Fixed the manpage reference to loadAlarmThreshold so that it now
+    correctly uses loadWarnThreshold.  I've sent a note about this
+    upstream, along with a comment about 2 being too low for a default
+    value. (closes: #60178)
+  * The xosview binary is no longer compiled with -R (rpath) set.  I
+    patched configure directly to do this, pending a discussion with
+    upstream, so don't rebuild it with autoconf.
+
+ -- Zed Pobre <zed@debian.org>  Sat,  8 Apr 2000 13:36:46 -0500
+
+xosview (1.7.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * The upstream CHANGES file notes that the negative numbers cosmetic bug
+    has been fixed, so this might fix bug #19019 finally.
+
+ -- Zed Pobre <zed@debian.org>  Wed, 17 Nov 1999 15:52:13 -0600
+
+xosview (1.7.2-2) unstable; urgency=medium
+
+  * Rebuild with DEBIAN_BUILDARCH unset (closes: #50443)
+
+ -- Zed Pobre <zed@debian.org>  Wed, 17 Nov 1999 15:29:29 -0600
+
+xosview (1.7.2-1) unstable; urgency=low
+
+  * New upstream release (BSDI support)
+
+ -- Zed Pobre <zed@debian.org>  Sat, 13 Nov 1999 17:16:26 -0600
+
+xosview (1.7.1-7) unstable; urgency=low
+
+  * Switched over to FHS.
+  * Yanked a bad -7 from Incoming before it was installed.  This replaces
+    it.
+
+ -- Zed Pobre <zed@debian.org>  Fri, 10 Sep 1999 23:21:49 -0500
+
+xosview (1.7.1-6) unstable; urgency=low
+
+  * Backed out the previous workaround for dh_compress failing, since it's
+    no longer needed.
+
+ -- Zed Pobre <zed@debian.org>  Sun, 15 Aug 1999 11:33:51 -0500
+
+xosview (1.7.1-5) unstable; urgency=low
+
+  * Okay, so it really does have to be XOsview...
+  * Bumped the standards version (required updating the references to the
+    licenses) while I was at it.
+  * Fixed the ungzipped CHANGES file problem, which stemmed from
+    dh_compress not behaving as I expected (not sure if that's a bug yet),
+    and not paying attention the last time I updated.  Lintian would have
+    caught it if I'd checked, naughty naughty...  Fixes bug#41983.
+
+ -- Zed Pobre <zed@debian.org>  Sat, 14 Aug 1999 17:28:43 -0500
+
+xosview (1.7.1-4) unstable; urgency=low
+
+  * Fixed the rules file to copy the xdefaults file as Xosview rather than
+    Xdefaults.  I'm leaving it however as Xosview rather than XOsview
+    unless someone has a compelling reason to do it otherwise.  Thanks to
+    Marcus Jodorf <m@bogomips.de> for pointing it out.  Closes bug#40557.
+
+ -- Zed Pobre <zed@debian.org>  Fri, 16 Jul 1999 08:43:57 -0500
+
+xosview (1.7.1-3) unstable; urgency=low
+
+  * Modified the mc68k patch to make use of @host_cpu@ and to also allow
+    for the addition of sparc to the exclusion list (thanks to Christian
+    Meder <meder@isr.uni-stuttgart.de> for a patch for this).  This should
+    close bug #33231.  At this point the original mc68000 patch has been
+    sent upstream (and been included for the next official release), but
+    this new patch has not.
+
+ -- Zed Pobre <zed@debian.org>  Fri, 25 Jun 1999 12:35:25 -0500
+
+xosview (1.7.1-2) unstable; urgency=low
+
+  * Fixed the mc68000 patch, which apparantly partially failed on one
+    file.  Should be working now.  Should fix bugs #24324, #28930,
+    #37851.  The sparc patch isn't in yet.
+
+ -- Zed Pobre <zed@debian.org>  Mon, 17 May 1999 13:55:34 -0500
+
+xosview (1.7.1-1) unstable; urgency=low
+
+  * New upstream version.  This should work with kernels > 2.2.1.
+  * The __mc68000__ and __KERNEL__ patches were reapplied, since I've been
+    bad and haven't sent these patches upstream yet.  I'll get to it RSN.
+  * Turned off memstat to get the thing to compile on my system.  Thank
+    Joey Hess for prompting me to putz with it again long enough to figure
+    out that this was responsible.  This release seems to fix bugs #33795,
+    #34511, #35796, #37462.  I'm going to have to talk to the Alpha and
+    M68k people again for some of the other bugs, though.
+
+ -- Zed Pobre <zed@debian.org>  Tue, 11 May 1999 23:32:37 -0500
+
+xosview (1.6.1-4) frozen unstable; urgency=low
+
+  * The bugfixes from 1.6.1-3 were considered high enough priority to make
+    it into frozen.  By request, and with the consent of Brian White, I am
+    uploading this again designated frozen and unstable.  No changes.
+
+ -- Zed Pobre <zed@debian.org>  Wed, 20 Jan 1999 08:28:11 -0600
+
+xosview (1.6.1-3) unstable; urgency=low
+
+  * Use "#ifdef __mc68000__", not "#ifdef __mc68k__ in MeterMaker.cc.
+    This should *really* fix bug#24324, I hope.
+  * Added a "#define __KERNEL__" to linux/memstat/memstat-2.0.c to work
+    around odd compile problems on m68k platforms (fixes bug#28930)
+  * Thanks to Roman Hodek for help getting the above together.
+
+ -- Zed Pobre <zed@debian.org>  Thu, 10 Dec 1998 01:13:25 -0600
+
+xosview (1.6.1-2) unstable; urgency=low
+
+  * Integrated a variant of the patch sent by Frank Neumann
+    <Frank.Neumann@Informatik.Uni-Oldenburg.DE> that fixes the m68k
+    compilation problems due to the lack of an ioperm() call on m68k
+    platforms.  Someone with an m68k please test this and let me know
+    if it works (I changed the MeterMaker.cc patch so that it didn't
+    assume you had an i386 if you didn't have an m68k, but I'm not sure if
+    I did it correctly).  If this works, it fixes bug#24324.
+
+ -- Zed Pobre <zed@debian.org>  Sun, 25 Oct 1998 13:00:57 -0600
+
+xosview (1.6.1-1) unstable; urgency=low
+
+  * This version uses ttyS instead of cua (fixes bug#14343)
+  * Menu entry added for System (fixes bug#22179)
+  * Redundant licences removed from copyright file and replaced with
+    pointers to the ones in /usr/doc/copyright (fixes bug#17931)
+  * Package reconstructed using debhelper.
+  * New upstream release.  This one works with the /proc of later 2.1.x
+    kernels.  (fixes bug#17995)
+  * New maintainer.  Official release.  (fixes bug#15882)
+
+ -- Zed Pobre <zed@debian.org>  Tue,  8 Sep 1998 18:07:49 -0500
+
+xosview (1.5.0-1.1) unstable; urgency=low
+
+  * Compiled for libc6.
+
+ -- Adam Heath <adam.heath@usa.net>  Fri, 23 Jan 1998 18:12:21 -0500
+
+xosview (1.5.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Maintainer change
+  * Initial release was 1.3.2-6 by joost witteveen <joostje@debian.org>
+
+ -- Radu Duta <rduta@debian.org>  Tue, 11 Nov 1997 09:03:52 -1100

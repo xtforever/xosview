@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Make an xosview distribution from a Git repo
+#
+
+set -e
+
+V=`git describe`
+D="xosview-$V"
+
+mkdir -p dist
+A="dist/$D.tar.gz"
+git archive --prefix="$D/" HEAD | gzip --best > "$A"
+
+echo "Created $A" >&2
+exit 0
